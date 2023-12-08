@@ -120,7 +120,7 @@ class UserController {
             let password = req.body.password;
             const signup = await UserService.signUp(req.body)
             if (signup.response) {
-                const result = await UserService.userLogin({email:req.body.email, password: password})
+                const result = await UserService.userLogin({ email: req.body.email, password: password })
                 res.send(result)
             } else {
                 res.send(signup)
