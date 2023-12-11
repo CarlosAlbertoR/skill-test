@@ -89,7 +89,6 @@ class UserService {
       verificationCode
     );
     emailService.deliverEmail(email, subject, body);
-
     let prev = await EmailVerifyModel.findOne({ email: email });
     if (prev) {
       let result = await EmailVerifyModel.update(
@@ -385,7 +384,7 @@ class UserService {
         data: null,
       };
     }
-    
+
     //check invite code
     if (parseInt(rawData.invite_code) !== 0) {
       let inviter = await UserModel.findOne({
